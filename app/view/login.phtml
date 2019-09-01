@@ -1,24 +1,39 @@
-<div class="grid-x grid-margin-x">
-    <div class="cell large-4 large-offset-4">
-        <form class="log-in-form" method="post" 
-        action="<?php echo App::config('url'); ?>index/autoriziraj">
-            <h4 class="text-center">Prijava</h4>
+<body>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+          <form class="log-in-form" method="post" action="<?php echo App::config('url'); ?>index/autoriziraj">
+            <h4 class="card-title text-center">Prijava</h4>
+            <form class="form-signin">
+            <div class="form-label-group">
             <label>Email
                 <input type="email" name="email" id="email" 
                 <?php if (App::config('dev')) {
     echo ' value="edunova@edunova.hr"';
 }?> />
             </label>
+            </div>
+
+            <div class="form-label-group">
             <label>Password
                 <input type="password" name="password" id="password" 
                 <?php if (App::config('dev')) {
     echo ' value="edunova"';
 }?> />
             </label>
-            <p><input type="submit" class="button expanded" value="Log in" /></p>
+            </div>
+
+            <p><input type="submit" class="btn btn-dark" value="Log in" /></p>
             <p><?php if (isset($greska)) {
     echo $greska;
 } ?></p>
         </form>
+        </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+</body>
