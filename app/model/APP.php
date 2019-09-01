@@ -26,7 +26,11 @@ class App
             $instanca = new $controller();
             $instanca->$function();
         } else {
-            header('HTTP/1.0 404 Not Found');
+            if (App::config('dev')) {
+                echo $controller.'->'.$function.' funkcija ne postoji';
+            } else {
+                header('HTTP/1.0 404 Not Found');
+            }
         }
     }
 
@@ -35,5 +39,20 @@ class App
         $config = include BP.'app/config.php';
 
         return $config[$key];
+    }
+
+    public static function param($key)
+    {
+        if (isset($_REQUEST[$key])) {
+            return $_REQUEST[$key];
+        }
+        if (isset($_GET[$key])) {
+            return $_GET[$key];
+        }
+        if (isset($_POST[$key])) {
+            return $_POST[$key];
+        }
+
+        return '';
     }
 }

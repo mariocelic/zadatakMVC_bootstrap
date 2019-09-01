@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // definiram basepath - apsolutnu putanju mog direktorija
 define('BP', __DIR__.DIRECTORY_SEPARATOR);
 
@@ -20,4 +22,4 @@ spl_autoload_register(function ($klasa) {
 
     return include $putanja;
 });
-APP::start();
+App::start();

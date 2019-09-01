@@ -1,16 +1,18 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
-    <?php include_once "template/head.phtml" ?>
+    <?php include_once 'template/head.phtml'; ?>
   </head>
   <body>
     <div class="grid-container">
-        <?php include_once "template/izbornik.phtml" ?>
+      <div class="justify-content-start">
+        <?php include_once 'template/izbornik.phtml'; ?>
         <div class=callout>
             <?php echo $content; ?>
         </div>
-        <?php include_once "template/podnozje.phtml" ?>
+      </div>
+        <?php include_once 'template/podnozje.phtml'; ?>
     </div>
-    <?php include_once "template/skripte.phtml" ?>
+    <?php include_once 'template/skripte.phtml'; ?>
   </body>
 </html>
