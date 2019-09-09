@@ -8,6 +8,6 @@ return [
     'server' => 'localhost',
     'baza' => 'tanatos_edunovapp19',
     'korisnik' => 'tanatos_edunova',
-    'lozinka' => 'Tanatos90835',
+    'lozinka' => 'Tanatos90835'
     ],
 ];

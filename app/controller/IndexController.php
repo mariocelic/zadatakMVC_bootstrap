@@ -76,4 +76,13 @@ class IndexController
 
         $view->render('login');
     }
+
+    public function nadzornaPloca()
+    {
+        if (!isset($_SESSION['autoriziran'])) {
+            $this->view->render('login');
+            exit;
+        }
+        $this->view->render('privatno/nadzornaPloca');
+    }
 }
