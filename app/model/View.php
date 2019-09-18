@@ -9,11 +9,11 @@ class View
         $this->layout = basename($layout);
     }
 
-    public function render($imePHTMLdatoteke, $podaci = [])
+    public function render($putanjaPHTMLdatoteke, $podaci = [])
     {
         ob_start();
         extract($podaci);
-        include BP."app/view/$imePHTMLdatoteke.phtml";
+        include BP."app/view/$putanjaPHTMLdatoteke.phtml";
         $content = ob_get_clean();
         if ($this->layout) {
             include BP."app/view/{$this->layout}.phtml";

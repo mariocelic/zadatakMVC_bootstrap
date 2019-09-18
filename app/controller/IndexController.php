@@ -2,6 +2,18 @@
 
 class IndexController
 {
+    private $view;
+
+    public function __construct()
+    {
+        $this->view = new View();
+    }
+
+    public function era()
+    {
+        $this->view->render('era');
+    }
+
     public function index()
     {
         $view = new View();
@@ -72,9 +84,7 @@ class IndexController
         unset($_SESSION['autoriziran']);
         session_destroy();
 
-        $view = new View();
-
-        $view->render('login');
+        $this->view->render('login');
     }
 
     public function nadzornaPloca()

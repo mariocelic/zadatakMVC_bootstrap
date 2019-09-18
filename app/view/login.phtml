@@ -5,32 +5,35 @@
         <div class="card card-signin my-5">
           <div class="card-body">
           <form class="log-in-form" method="post" action="<?php echo App::config('url'); ?>index/autoriziraj">
+          <form>
+            <fieldset>
             <h4 class="card-title text-center">Prijava</h4>
             <form class="form-signin">
-            <div class="form-label-group">
-            <label>Email
-                <input type="email" name="email" id="email" 
-                <?php if (App::config('dev')) {
+            <div class="form-group">
+              <label>Email
+              <input type="email" class="form-control" name="email" id="email"
+               <?php if (App::config('dev')) {
     echo ' value="edunova@edunova.hr"';
 }?> />
             </label>
-            </div>
-
-            <div class="form-label-group">
+      
+             </div>
+            <div class="form-group">
             <label>Password
-                <input type="password" name="password" id="password" 
-                <?php if (App::config('dev')) {
+            <input type="password" class="form-control" name="password" id="password" 
+            <?php if (App::config('dev')) {
     echo ' value="edunova"';
 }?> />
-            </label>
+            
             </div>
-
+            </fieldset>
             <p><input type="submit" class="btn btn-dark" value="Log in" /></p>
             <p><?php if (isset($greska)) {
     echo $greska;
 } ?></p>
+
         </form>
-        </form>
+        
         </div>
       </div>
     </div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form method="post" 
+                action="<?php echo App::config('url'); ?>kupac/novi">
+                <fieldset>
+                    <legend>Popunite tražene podatke</legend>
+                    <label>
+                        Ime 
+                        <input type="text" id="ime" name="ime">
+                    </label>
+
+                    <label>
+                        Prezime
+                        <input type="text" id="prezime" name="prezime">
+                    </label>
+
+                    <label>
+                        Adresa
+                        <input type="text" id="adresa" name="adresa">
+                    </label>
+
+                    <label>
+                        Grad
+                        <input type="text" id="grad" name="grad">
+                    </label>
+
+                    <label>
+                        Država
+                        <input type="text" id="drzava" name="drzava">
+                    </label>
+                    
+                    <label>
+                        Kontakt
+                        <input type="text" id="kontakt" name="kontakt">
+                    </label>
+                    
+                    <hr />
+                    <div class="container">
+                        <div class="col-5 col-lg-3">
+                            <a class="button expanded"
+                                href="<?php echo App::config('url'); ?>kupac/index">
+                                Odustani
+                            </a>
+                        </div>
+                        <div class="col-1 col-lg-1">
+                        
+                        </div>
+                        <div class="col-6 col-lg-8">
+                            <input class="btn btn-info"
+                                type="submit" value="Dodaj novog kupca">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
