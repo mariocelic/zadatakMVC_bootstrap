@@ -1,55 +1,55 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 <div clas="container">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Izbornik</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item-active"<?php echo Utility::active('/'); //ne radi?>>
-        <a class="nav-link text-white" href="<?php echo App::config('url'); ?>">
-            <?php echo App::config('nazivApp'); ?>
-        </a>
-      </li>
-
-        <?php if (isset($_SESSION['autoriziran'])): ?>
-        <li class="nav-item" <?php echo Utility::active('/index/nadzornaPloca'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/nadzornaPloca">Nadzorna ploča</a>
-        </li>
-        <li class="nav-item" <?php echo Utility::active('/kupac/index'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>kupac/index">Kupci</a>
-        </li>
-        <li class="nav-item" <?php echo Utility::active('/placanje/index'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>placanje/index">Placanja</a>
-        </li>
-        <li class="nav-item" <?php echo Utility::active('/rezervacija/index'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>rezervacija/index">Rezervacije</a>
-        </li>
-        <li class="nav-item" <?php echo Utility::active('/soba/index'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>soba/index">Sobe</a>
-        </li>
-        <li class="nav-item" <?php echo Utility::active('/index/era'); ?>>
-          <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/era">ERA</a>
-        </li>
-      <?php endif; ?>
-  </div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+     <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">Izbornik</a>
+      
+      <div class="collapse navbar-collapse">      
+        <ul class="navbar-nav mr-auto">
+        <div class="dropdown-menu" x-placement="bottom-start">
+      
+          <li class="nav-item dropdown"<?php echo Utility::active('/'); //ne radi?>>
+            <a class="nav-link text-white" href="<?php echo App::config('url'); ?>">
+                <?php echo App::config('nazivApp'); ?>
+            </a>
+          </li>
+      
+            <?php if (isset($_SESSION['autoriziran'])): ?>        
+              <li class="navbar-item" <?php echo Utility::active('/index/nadzornaPloca'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/nadzornaPloca">Nadzorna ploča</a>
+              </li>
+              <li class="navbar-item" <?php echo Utility::active('/kupac/index'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>kupac/index">Kupci</a>
+              </li>
+              <li class="navbar-item" <?php echo Utility::active('/placanje/index'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>placanje/index">Placanja</a>
+              </li>
+              <li class="navbar-item" <?php echo Utility::active('/rezervacija/index'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>rezervacija/index">Rezervacije</a>
+              </li>
+              <li class="navbar-item" <?php echo Utility::active('/soba/index'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>soba/index">Sobe</a>
+              </li>
+              <li class="navbar-item" <?php echo Utility::active('/index/era'); ?>>
+                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/era">ERA</a>
+              </li>
+          
+          <?php endif; ?>
+        <div>
+        </ul>
+      </div>
+    
       <div class="navbar-nav">
-      <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/onama">O nama</a>
-      <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/kontakt">Kontakt</a>
-        <?php if (isset($_SESSION['autoriziran'])): ?>
-          <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/logout">Odjava
-        <?php echo $_SESSION['autoriziran']->imePrezime; ?></a>
-          <?php else:?>
-          <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/login">Prijava</a>
-        <?php endif; ?>
+        <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/onama">O nama</a>
+        <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/kontakt">Kontakt</a>
+          <?php if (isset($_SESSION['autoriziran'])): ?>
+            <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/logout">Odjava
+          <?php echo $_SESSION['autoriziran']->imePrezime; ?></a>
+            <?php else:?>
+            <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/login">Prijava</a>
+          <?php endif; ?>
         
-    </div>
- </nav>
-
- </div>
+      </div>
+  </nav>
+</div>
 
 
 

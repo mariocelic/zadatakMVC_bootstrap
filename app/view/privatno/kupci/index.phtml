@@ -1,5 +1,5 @@
 <a href="<?php echo App::config('url'); ?>kupac/pripremaNovi" 
-class=" btn btn-primary">
+class="btn btn-primary">
 <i class="fas fa-plus-square"></i>
 Dodaj novog kupca</a>
 
@@ -28,14 +28,14 @@ Dodaj novog kupca</a>
           <a title="Promjeni <?php echo $kupac->ime; ?>" 
               href="<?php
               echo App::config('url');
-              ?>kupac/pripremaPromjena/<?php echo $kupac->sifra; ?>">
+              ?>kupac/pripremaPromjeni/<?php echo $kupac->sifra; ?>">
               <i class="fas fa-edit fa-2x" style="color: orange"></i>
           </a>
           <?php if ($kupac->ukupno == 0): ?>
               <a title="Obriši <?php echo $kupac->ime; ?>" 
                   href="<?php
                   echo App::config('url');
-                  ?>kupac/brisanje/<?php echo $kupac->ime; ?>">
+                  ?>kupac/brisanje/<?php echo $kupac->sifra; ?>">
                   <i class="fas fa-trash fa-2x" style="color: red"></i>
               </a>
       <?php else:?>
@@ -45,21 +45,12 @@ Dodaj novog kupca</a>
           <?php endif; ?> 
           
           </td>
-        </tr>
+        </tr> 
       <?php endforeach; ?>
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="2">
-          <?php echo Utility::sumProperties($kupci, 'soba') / count($kupci); ?>
-        </td>
-        <td>
-          <?php echo number_format(Utility::sumProperties($kupci, 'placanje') / count($kupci), 2); ?>
-        </td>
-        <td>
-          <?php echo Utility::sumProperties($kupci, 'rezervacija') / count($kupci); ?>
-        </td>
-        <td colspan="2"></td>
+        
       </tr>
     </tfoot>
 </table>

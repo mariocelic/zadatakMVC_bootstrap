@@ -1,1 +1,44 @@
-Popis placanja
+<a href="<?php echo App::config('url'); ?>placanje/pripremaNovi" 
+class="btn btn-primary">
+<i class="fas fa-plus-square"></i>
+Dodaj novo plaćanje</a>
+
+<div class="container">
+<div class="row">
+    <?php foreach ($placanja as $placanje): ?>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <ul class="pricing-table">
+                <li><?php echo placanje->kupac; ?></li>
+                <li><?php echo placanje->rezervacija; ?></li>
+                <li><?php echo placanje->nacinplacanja; ?></li>
+                <li>
+                    <a title="Promjeni <?php echo placanje->kupac; ?>" 
+                        href="<?php
+                        echo App::config('url');
+                        ?>placanje/pripremaPromjeni/<?php echo placanje->sifra; ?>">
+                        <i class="fas fa-edit fa-2x" style="color: orange"></i>
+                    </a>
+                    <?php if (placanje->ukupno == 0): ?>
+                        <a title="Obriši <?php echo placanje->kupac; ?>" 
+                            onclick="return confirm('Sigurno obrisati <?php echo placanje->kupac; ?>');"
+                            href="<?php
+                            echo App::config('url');
+                            ?>placanje/brisanje/<?php echo placanje->sifra; ?>">
+                            <i class="fas fa-trash fa-2x" style="color: red"></i>
+                        </a>
+                    <?php else:?>
+                        <i title="Ne može se obrisati jer ima unesene vrijednosti" 
+                        class="fas fa-trash fa-2x" style="color: gray"></i>
+                    <?php endif; ?>
+
+                </li>
+            </ul>
+        </div>
+    <?php endforeach; ?>
+</div>
+</div>
+
+
+
+
+

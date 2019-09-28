@@ -1,0 +1,39 @@
+<table id="tablicaPlacanja">
+  <thead>
+    <tr>
+     <th>Kupac</th>
+     <th>Rezervacija</th>
+     <th>Naćin plaćanja</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($placanja as $placanje): ?>
+      <tr>
+        <td><?php echo $placanje->kupac; ?></td>
+        <td><?=$placanje->rezervacija; ?></td>
+        <td><?php echo $placanje->nacinplacanja; ?></td>
+        <td>
+        <a title="Promjeni <?php echo $placanje->kupac; ?>" 
+            href="<?php
+            echo App::config('url');
+            ?>placanje/pripremaPromjeni/<?php echo $placanje->sifra; ?>">
+            <i class="fas fa-edit fa-2x" style="color: orange"></i>
+        </a>
+        <?php if ($placanje->ukupno == 0): ?>
+            <a title="Obriši <?php echo $placanje->kupac; ?>" 
+                onclick="return confirm('Sigurno obrisati <?php echo $predavac->kupac; ?>');"
+                href="<?php
+                echo App::config('url');
+                ?>placanje/brisanje/<?php echo $placanje->sifra; ?>">
+                <i class="fas fa-trash fa-2x" style="color: red"></i>
+            </a>
+        <?php else:?>
+            <i title="Ne može se obrisati jer ima podataka" 
+            class="fas fa-trash fa-2x" style="color: gray"></i>
+        <?php endif; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

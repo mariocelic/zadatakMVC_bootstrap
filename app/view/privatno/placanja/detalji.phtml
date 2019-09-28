@@ -1,0 +1,18 @@
+<form>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <legend>Popunite tražene podatke</legend>
+
+        <?php echo Utility::inputText(
+            isset($greska) ? $greska : null, 'kupac', 'Kupac'); ?>
+
+        <?php echo Utility::inputText(
+            isset($greska) ? $greska : null, 'rezervacija', 'Rezervacija'); ?>
+
+        <?php echo Utility::inputText(
+            isset($greska) ? $greska : null, 'nacinplacanja', 'Nacin plaćanja'); ?>
+
+    </div>
+    </div>
+</form>
+<hr />

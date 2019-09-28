@@ -1,19 +1,19 @@
 <?php
 
-class Kupac
+class Placanje
 {
-    public static function getKupci()
+    public static function getPlacanja()
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
 
-            select a.sifra,a.ime,a.prezime,
-            a.adresa,a.grad,a.drzava,a.kontakt, 
+            select a.sifra,a.kupac,a.rezervacija,
+            a.nacinplacanja, 
             count(b.sifra) as ukupno
-            from kupac a left join rezervacija b
-            on a.sifra=b.kupac
-            group by a.sifra,a.ime,a.prezime,
-            a.adresa,a.grad,a.drzava,a.kontakt
+            from placanje a left join rezervacija b
+            on a.sifra=b.placanje
+            group by a.sifra,a.kupac,a.rezervacija,
+            a.nacinplacanja
     
     ');
         $izraz->execute();
@@ -26,10 +26,10 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        select * from kupac where sifra=:kupac
+        select * from placanje where sifra=:placanje
         
         ');
-        $izraz->execute(['kupac' => $id]);
+        $izraz->execute(['placanje' => $id]);
 
         return $izraz->fetch(PDO::FETCH_ASSOC);
     }
@@ -38,8 +38,8 @@ class Kupac
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
-            insert into kupac values
-            (null,:ime,:prezime,:adresa,:grad,:drzava,:kontakt)
+            insert into placanje values
+            (null,:kupac,:rezervacija,:nacinplacanja)
         ');
 
         $izraz->execute($_POST);
@@ -50,13 +50,11 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        update kupac set
-        ime=:ime,
-        prezime=:prezime,
-        adresa=:adresa,
-        grad=:grad,
-        drzava=:drzava,
-        kontakt=:kontakt
+        update placanje set
+        kupac=:kupac,
+        rezervacija=:rezervacija,
+        nacinplacanja=:nacinplacanja,
+        
         where sifra=:sifra
         
         ');
@@ -69,7 +67,7 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-            delete from kupac where sifra=:sifra
+            delete from placanje where sifra=:sifra
 
         ');
 
@@ -81,10 +79,10 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        select count(sifra) from rezervacija where kupac=:kupac
+        select count(sifra) from rezervacija where placanje=:placanje
         
         ');
-        $izraz->execute(['kupac' => $id]);
+        $izraz->execute(['placanje' => $id]);
         $ukupno = $izraz->fetchColumn();
 
         return $ukupno == 0;
