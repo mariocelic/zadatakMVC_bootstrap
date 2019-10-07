@@ -22,7 +22,7 @@
         </a>
         <?php if ($placanje->ukupno == 0): ?>
             <a title="Obriši <?php echo $placanje->kupac; ?>" 
-                onclick="return confirm('Sigurno obrisati <?php echo $predavac->kupac; ?>');"
+                onclick="return confirm('Sigurno obrisati <?php echo $placanje->kupac; ?>');"
                 href="<?php
                 echo App::config('url');
                 ?>placanje/brisanje/<?php echo $placanje->sifra; ?>">

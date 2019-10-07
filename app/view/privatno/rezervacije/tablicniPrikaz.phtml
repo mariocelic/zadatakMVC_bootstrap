@@ -1,0 +1,43 @@
+<table id="tablicaRezervacija">
+  <thead>
+    <tr>
+     <th>Kupac</th>
+     <th>Plaćanje</th>
+     <th>Datum prijave</th>
+     <th>Datum odjave</th>
+     <th>Soba</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <?php foreach ($rezervacija as $rezervacije): ?>
+      <tr>
+        <td><?php echo $rezervacija->kupac; ?></td>
+        <td><?php echo $rezervacija->placanje; ?></td>
+        <td><?php echo $placanje->datumprijave; ?></td>
+        <td><?php echo $rezervacija->datumodjave; ?></td>
+        <td><?php echo $rezervacija->soba; ?></td>
+        <td>
+        <a title="Promjeni <?php echo $rezervacija->kupac; ?>" 
+            href="<?php
+            echo App::config('url');
+            ?>rezervacija/pripremaPromjeni/<?php echo $rezervacija->sifra; ?>">
+            <i class="fas fa-edit fa-2x" style="color: orange"></i>
+        </a>
+        <?php if ($rezervacija->ukupno == 0): ?>
+            <a title="Obriši <?php echo $rezervacija->kupac; ?>" 
+                onclick="return confirm('Sigurno obrisati <?php echo $rezervacija->kupac; ?>');"
+                href="<?php
+                echo App::config('url');
+                ?>rezervacija/brisanje/<?php echo $rezervacija->sifra; ?>">
+                <i class="fas fa-trash fa-2x" style="color: red"></i>
+            </a>
+        <?php else:?>
+            <i title="Ne može se obrisati jer ima podataka" 
+            class="fas fa-trash fa-2x" style="color: gray"></i>
+        <?php endif; ?>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

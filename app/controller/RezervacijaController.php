@@ -8,12 +8,14 @@ class RezervacijaController extends Controller
     public function index()
     {
         $this->view->render('privatno/rezervacije/index',
-            ['rezervacije' => Predavac::getRezervacije()]);
+            ['rezervacije' => Rezervacija::getRezervacije()]);
     }
 
     public function pripremaNovi()
     {
-        $this->view->render('privatno/rezervacije/novi');
+        $this->view->render('privatno/rezervacije/novi',
+        ['kupci' => Kupac::getKupci(),
+        'placanja' => Placanje::getPlacanja(), ]);
     }
 
     public function novi()
@@ -30,8 +32,14 @@ class RezervacijaController extends Controller
 
     public function pripremaPromjeni($id)
     {
-        App::setParams(Rezervacija::read($id));
-        $this->view->render('privatno/rezervacije/promjeni', ['id' => $id]);
+        $rezervacija = Rezervacija::read($id);
+        $rezervacija['datumprijave'] = date('c', strtotime($grupa['datumprijave']));
+        App::setParams($rezervacija);
+
+        $this->view->render('privatno/rezervacije/promjeni',
+       ['id' => $id,
+       'kupci' => Kupac::getKupci(),
+       'placanja' => Placanje::getPlacanja(), ]);
     }
 
     public function promjeni($id)
@@ -61,11 +69,9 @@ class RezervacijaController extends Controller
 
     private function kontrole()
     {
-        //nema (još) kontrola
         return true;
     }
 
-    //nju za sada nitko ne poziva
     private function greska($polje, $poruka)
     {
         $this->view->render($this->viewGreska,

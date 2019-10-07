@@ -1,0 +1,25 @@
+<form>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <legend>Popunite tražene podatke</legend>
+
+        <div class="col-md-6 text-light">
+            <?php echo Utility::inputText(
+                isset($greska) ? $greska : null, 'kupac', 'Kupac'); ?>
+
+            <?php echo Utility::inputText(
+                isset($greska) ? $greska : null, 'placanje', 'Plaćanje'); ?>
+
+            <?php echo Utility::inputText(
+                isset($greska) ? $greska : null, 'datumprijave', 'Datum prijave'); ?>
+
+            <?php echo Utility::inputText(
+                isset($greska) ? $greska : null, 'datumodjave', 'Datum odjave'); ?>
+
+            <?php echo Utility::inputText(
+                isset($greska) ? $greska : null, 'soba', 'Soba'); ?>
+        </div>
+    </div>
+    </div>
+</form>
+<hr />

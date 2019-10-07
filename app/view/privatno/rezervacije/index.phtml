@@ -1,1 +1,56 @@
-Popis rezervacija
+<a href="<?php echo App::config('url'); ?>rezervacija/pripremaNovi" 
+class="btn btn-primary">
+<i class="fas fa-plus-square"></i>
+Dodaj novu rezervaciju</a>
+
+<table id="tablicaRezervacije">  
+  <table class="table table-hover">  
+    <thead>
+      <tr class="table-secondary">
+      <th scope="col">Kupac</th>
+      <th scope="col">Plaćanje</th>
+      <th scope="col">Datum prijave</th>
+      <th scope="col">Datum odjave</th>
+      <th scope="col">Soba</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($rezervacije as $rezervacija): ?>
+      <tr class="table-info">
+          <td><?php echo $rezervacija->ime.' '.$predavac->prezime; ?></td>
+          <td><?php echo $rezervacija->placanje; ?></td>
+          <td><?php echo $rezervacija->datumprijave; ?></td>
+          <td><?php echo $rezervacija->datumodjave; ?></td>
+          <td><?php echo $rezervacija->soba; ?></td>
+          
+          <td>
+          <a title="Promjeni <?php echo $rezervacija->ime.' '.$predavac->prezime; ?>" 
+              href="<?php
+              echo App::config('url');
+              ?>rezervacija/pripremaPromjeni/<?php echo $rezervacija->sifra; ?>">
+              <i class="fas fa-edit fa-2x" style="color: orange"></i>
+          </a>
+          <?php if ($rezervacija->ukupno == 0): ?>
+              <a title="Obriši <?php echo $rezervacija->ime . ' ' . $predavac->prezime; ?>" 
+                  href="<?php
+                  echo App::config('url');
+                  ?>rezervacija/brisanje/<?php echo $rezervacija->sifra; ?>">
+                  <i class="fas fa-trash fa-2x" style="color: red"></i>
+              </a>
+      <?php else:?>
+              <i title="Ne može se obrisati jer ima rezervacija" 
+              class="fas fa-trash fa-2x" style="color: gray"></i>
+
+          <?php endif; ?> 
+          
+          </td>
+        </tr> 
+      <?php endforeach; ?>
+    </tbody>
+    <tfoot>
+      <tr>
+        
+      </tr>
+    </tfoot>
+</table>

@@ -3,8 +3,19 @@
     --input-padding-y: .75rem;
   }
   
+  .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('../img/hotel-login.png');
+    background-repeat:repeat;
+  }
   
-  
+    
   .card-signin {
     border: 0;
     border-radius: 1rem;
@@ -117,5 +128,5 @@ table#tablicaSmjerovi > tbody > tr > td:nth-child(5)
 table#tablicaSmjerovi > thead > tr > th{
     text-align: center;
 }
-  
+
   

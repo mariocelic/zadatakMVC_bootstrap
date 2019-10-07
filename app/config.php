@@ -6,8 +6,8 @@ return [
     'dev' => true,
     'db' => [
     'server' => 'localhost',
-    'baza' => 'tanatos_edunovapp19',
-    'korisnik' => 'tanatos_edunova',
-    'lozinka' => 'Tanatos90835'
+    'baza' => 'hotel',
+    'korisnik' => 'mario',
+    'lozinka' => 'mario',
     ],
 ];

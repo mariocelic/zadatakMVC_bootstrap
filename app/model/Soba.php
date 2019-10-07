@@ -1,20 +1,20 @@
 <?php
 
-class Kupac
+class Soba
 {
-    public static function getKupci()
+    public static function getSobe()
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
 
-            select a.sifra,a.ime,a.prezime,
-            a.adresa,a.grad,a.drzava,a.kontakt, 
+            select a.sifra,a.vrstasobe,a.cijenasobe,
+            a.slikasobe,a.opissobe, 
             count(b.sifra) as ukupno
-            from kupac a left join rezervacija b
-            on a.sifra=b.kupac
-            group by a.sifra,a.ime,a.prezime,
-            a.adresa,a.grad,a.drzava,a.kontakt
-            order by a.prezime
+            from soba a left join rezervacija b
+            on a.sifra=b.soba
+            group by a.sifra,a.vrstasobe,a.cijenasobe,
+            a.slikasobe,a.opissobe
+            order by a.vrstasobe
     
     ');
         $izraz->execute();
@@ -27,10 +27,10 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        select * from kupac where sifra=:kupac
+        select * from soba where sifra=:soba
         
         ');
-        $izraz->execute(['kupac' => $id]);
+        $izraz->execute(['soba' => $id]);
 
         return $izraz->fetch(PDO::FETCH_ASSOC);
     }
@@ -39,10 +39,10 @@ class Kupac
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
-            insert into kupac 
-            (null,ime,prezime,adresa,grad,drzava,kontakt)
+            insert into soba
+            (null,vrstasobe,cijenasobe,slikasobe,opissobe)
             values
-            (null,:ime,:prezime,:adresa,:grad,:drzava,:kontakt)
+            (null,:vrstasobe,:cijenasobe,:slikasobe,:opissobe)
         ');
 
         $izraz->execute($_POST);
@@ -53,13 +53,11 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        update kupac set
-        ime=:ime,
-        prezime=:prezime,
-        adresa=:adresa,
-        grad=:grad,
-        drzava=:drzava,
-        kontakt=:kontakt
+        update soba set
+        vrstasobe=:vrstasobe,
+        cijenasobe=:cijenasobe,
+        slikasobe=:slikasobe,
+        opissobe=:opissobe
         where sifra=:sifra
         
         ');
@@ -72,7 +70,7 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-            delete from kupac where sifra=:sifra
+            delete from soba where sifra=:sifra
 
         ');
 
@@ -84,10 +82,10 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        select count(sifra) from rezervacija where kupac=:kupac
+        select count(sifra) from rezervacija where soba=:soba
         
         ');
-        $izraz->execute(['kupac' => $id]);
+        $izraz->execute(['soba' => $id]);
         $ukupno = $izraz->fetchColumn();
 
         return $ukupno == 0;

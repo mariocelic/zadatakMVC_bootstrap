@@ -1,26 +1,3 @@
-
-<?php
-/*
-foreach($smjerovi as $smjer){
-    echo $smjer->naziv, ', ';
-}
-*/
-echo '<h1>Jednostavan tekst</h1>';
-echo implode(', ',
-            array_map(
-                function ($smjer) {
-                    return $kupac->ime.': '.$kupac->prezime
-                }, $kupci
-                )
-            );
-?>
-<h1>Liste</h1>
-<ol id="kupci">
-    <?php foreach ($kupci as $kupac):?>
-        <li><?php echo $kupac->ime; ?> <span class="alert badge"><?php echo $kupac->prezime; ?></span></li>
-    <?php endforeach; ?>
-</ol>
-
 <h1>Tablice</h1>
 
 <table id="tablicaKupci">
@@ -48,16 +25,7 @@ echo implode(', ',
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="2">
-        <?php echo Utility::sumProperties($kupci, 'soba') / count($kupci); ?>
-      </td>
-      <td> 
-        <?php echo number_format(Utility::sumProperties($kupci, 'placanje') / count($kupci), 2); ?>
-      </td>
-      <td>
-        <?php echo Utility::sumProperties($kupci, 'rezervacija') / count($kupci); ?>
-      </td>
-      <td></td>
+      
     </tr>
   </tfoot>
 </table>

@@ -8,7 +8,7 @@ class SobaController extends Controller
     public function index()
     {
         $this->view->render('privatno/sobe/index',
-            ['sobe' => Predavac::getSobe()]);
+            ['sobe' => Soba::getSobe()]);
     }
 
     public function pripremaNovi()

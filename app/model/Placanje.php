@@ -7,13 +7,12 @@ class Placanje
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
 
-            select a.sifra,a.kupac,a.rezervacija,
-            a.nacinplacanja, 
+            select a.sifra,a.nacinplacanja, 
             count(b.sifra) as ukupno
             from placanje a left join rezervacija b
             on a.sifra=b.placanje
-            group by a.sifra,a.kupac,a.rezervacija,
-            a.nacinplacanja
+            group by a.sifra,a.nacinplacanja
+            order by a.nacinplacanja
     
     ');
         $izraz->execute();
@@ -38,8 +37,10 @@ class Placanje
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
-            insert into placanje values
-            (null,:kupac,:rezervacija,:nacinplacanja)
+            insert into placanje
+            (null,nacinplacanja)
+            values
+            (null,:nacinplacanja)
         ');
 
         $izraz->execute($_POST);
@@ -51,9 +52,7 @@ class Placanje
         $izraz = $veza->prepare('
         
         update placanje set
-        kupac=:kupac,
-        rezervacija=:rezervacija,
-        nacinplacanja=:nacinplacanja,
+        nacinplacanja=:nacinplacanja
         
         where sifra=:sifra
         
