@@ -5,27 +5,27 @@ class Rezervacija
     public static function getRezervacije()
     {
         $veza = DB::getInstance();
-        $izraz = $veza->prepare("
+        $izraz = $veza->prepare('
         
         select 
             a.sifra,
-            a.kupac,
-            b.kupac as kupac,
-            concat(d.ime,' ',d.prezime) as predavac,
-            a.brojpolaznika,
-            a.datumpocetka,
-            count(e.polaznik) as ukupno
-        from 		grupa a
-        inner join 	smjer b 	on a.smjer		=b.sifra
-        inner join 	predavac c 	on a.predavac	=c.sifra
-        inner join 	osoba d 	on c.osoba		=d.sifra
-        left  join 	clan e 		on e.grupa		=a.sifra
-        group by 
-        a.sifra,a.naziv,b.naziv,
-        concat(d.ime,' ',d.prezime),
-        a.brojpolaznika,a.datumpocetka
+            b.prezime as kupac,
+            c.nacinplacanja as placanje,
+            d.vrstasobe as soba,
+            a.datumprijave,
+            a.datumodjave
+            
+        from        rezervacija a
+        inner join 	kupac b 	on a.kupac		=b.sifra
+        inner join 	placanje c 	on a.placanje	=c.sifra
+        inner join 	soba d 	on a.soba		=d.sifra
         
-        ");
+        group by 
+        a.sifra,b.prezime,
+        c.nacinplacanja,d.vrstasobe,
+        a.datumprijave,a.datumodjave
+        
+        ');
         $izraz->execute();
 
         return $izraz->fetchAll();

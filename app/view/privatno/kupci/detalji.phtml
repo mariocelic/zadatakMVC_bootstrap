@@ -1,28 +1,30 @@
-<div class="row">
-    <div class="col-xs-9 col-md-6 col-lg-3">
-        <legend>Popunite tražene podatke</legend>
+<fieldset class="scheduler-border">
+<legend class="scheduler-border">Popunite tražene podatke</legend>
+    <div class="row">
+        <div class="col-xs-9 col-md-6 col-lg-3">
+            
 
-            <div class="col-xs-9 col-md-6 col-lg-3 text-light">
-                <?php echo Utility::inputText(
-                    isset($greska) ? $greska : null, 'ime', 'Ime'); ?>
-                
-                <?php echo Utility::inputText(
-                    isset($greska) ? $greska : null, 'prezime', 'Prezime'); ?>
+                <div class="col-xs-9 col-md-6 col-lg-3 text-light">
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'ime', 'Ime'); ?>
+                    
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'prezime', 'Prezime'); ?>
 
-                <?php echo Utility::inputText(
-                    isset($greska) ? $greska : null, 'adresa', 'Adresa'); ?>
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'adresa', 'Adresa'); ?>
 
-                <?php echo Utility::inputText(
-                    isset($greska) ? $greska : null, 'grad', 'Grad'); ?>
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'grad', 'Grad'); ?>
 
-                <?php echo Utility::inputText(
-                     isset($greska) ? $greska : null, 'drzava', 'Država'); ?>
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'drzava', 'Država'); ?>
 
-                <?php echo Utility::inputText(
-                    isset($greska) ? $greska : null, 'kontakt', 'Kontakt'); ?>
-            </div>
+                    <?php echo Utility::inputText(
+                        isset($greska) ? $greska : null, 'kontakt', 'Kontakt'); ?>
+                </div>
 
+        </div>
     </div>
-</div>
-
+</fieldset>
 <hr />

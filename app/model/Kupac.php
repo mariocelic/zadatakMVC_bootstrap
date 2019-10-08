@@ -11,10 +11,10 @@ class Kupac
             a.adresa,a.grad,a.drzava,a.kontakt, 
             count(b.sifra) as ukupno
             from kupac a left join rezervacija b
-            on a.sifra=b.kupac
+            on a.sifra=b.kupac            
             group by a.sifra,a.ime,a.prezime,
             a.adresa,a.grad,a.drzava,a.kontakt
-            order by a.prezime
+            order by a.prezime           
     
     ');
         $izraz->execute();
@@ -40,7 +40,6 @@ class Kupac
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
             insert into kupac 
-            (null,ime,prezime,adresa,grad,drzava,kontakt)
             values
             (null,:ime,:prezime,:adresa,:grad,:drzava,:kontakt)
         ');

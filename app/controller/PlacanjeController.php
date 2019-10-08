@@ -31,7 +31,8 @@ class PlacanjeController extends Controller
     public function pripremaPromjeni($id)
     {
         App::setParams(Placanje::read($id));
-        $this->view->render('privatno/placanja/promjeni', ['id' => $id]);
+        $this->view->render('privatno/placanja/promjeni',
+        ['id' => $id]);
     }
 
     public function promjeni($id)

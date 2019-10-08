@@ -38,7 +38,6 @@ class Placanje
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
             insert into placanje
-            (null,nacinplacanja)
             values
             (null,:nacinplacanja)
         ');

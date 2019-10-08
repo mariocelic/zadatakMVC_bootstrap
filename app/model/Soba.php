@@ -40,7 +40,6 @@ class Soba
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
             insert into soba
-            (null,vrstasobe,cijenasobe,slikasobe,opissobe)
             values
             (null,:vrstasobe,:cijenasobe,:slikasobe,:opissobe)
         ');

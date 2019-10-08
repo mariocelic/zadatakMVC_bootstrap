@@ -15,7 +15,8 @@ class RezervacijaController extends Controller
     {
         $this->view->render('privatno/rezervacije/novi',
         ['kupci' => Kupac::getKupci(),
-        'placanja' => Placanje::getPlacanja(), ]);
+        'placanja' => Placanje::getPlacanja(),
+        'sobe' => Soba::getSobe(), ]);
     }
 
     public function novi()
@@ -27,19 +28,20 @@ class RezervacijaController extends Controller
         }
 
         Rezervacija::novi();
-        $this->index();
+        $this->pripremaPromjeni(Rezervacija::novi());
     }
 
     public function pripremaPromjeni($id)
     {
         $rezervacija = Rezervacija::read($id);
-        $rezervacija['datumprijave'] = date('c', strtotime($grupa['datumprijave']));
+        $rezervacija['datumprijave'] = date('c', strtotime($rezervacija['datumprijave']));
         App::setParams($rezervacija);
 
         $this->view->render('privatno/rezervacije/promjeni',
        ['id' => $id,
        'kupci' => Kupac::getKupci(),
-       'placanja' => Placanje::getPlacanja(), ]);
+       'placanja' => Placanje::getPlacanja(),
+       'sobe' => Soba::getSobe(), ]);
     }
 
     public function promjeni($id)

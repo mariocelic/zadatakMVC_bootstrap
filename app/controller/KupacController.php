@@ -30,7 +30,8 @@ class KupacController extends Controller
     public function pripremaPromjeni($id)
     {
         App::setParams(Kupac::read($id));
-        $this->view->render('privatno/kupci/promjeni', ['id' => $id]);
+        $this->view->render('privatno/kupci/promjeni',
+        ['id' => $id]);
     }
 
     public function promjeni($id)
