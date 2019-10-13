@@ -7,3 +7,7 @@
 - napravljen pristup kupcima
 - ispravljena greska kod izmjene podataka u kupcima
 - napravljen dio pristupa placanjima 
+- napravljeni pristupi tablicama u bazi
+- ispravljena greška u kupcima kod promjene podataka
+- izmjenjen izgled
+- ubacen search u kupce, ali ne radi
