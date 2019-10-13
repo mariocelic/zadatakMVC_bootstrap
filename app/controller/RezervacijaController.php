@@ -27,21 +27,25 @@ class RezervacijaController extends Controller
             return;
         }
 
-        Rezervacija::novi();
         $this->pripremaPromjeni(Rezervacija::novi());
     }
 
     public function pripremaPromjeni($id)
     {
         $rezervacija = Rezervacija::read($id);
-        $rezervacija['datumprijave'] = date('c', strtotime($rezervacija['datumprijave']));
+
         App::setParams($rezervacija);
 
         $this->view->render('privatno/rezervacije/promjeni',
        ['id' => $id,
        'kupci' => Kupac::getKupci(),
        'placanja' => Placanje::getPlacanja(),
-       'sobe' => Soba::getSobe(), ]);
+       'sobe' => Soba::getSobe(),
+        'cssFile' => '<link rel="stylesheet" href="'.App::config('url').'public/css/jquery-ui.css">',
+       'jsLib' => '<script src="'.App::config('url').'public/js/vendor/jquery-ui.js"></script>',
+       'javascript' => '
+       <script>var rezervacija='.$id.';</script>
+       <script src="'.App::config('url').'public/js/rezervacije/skripta.js"></script>', ]);
     }
 
     public function promjeni($id)

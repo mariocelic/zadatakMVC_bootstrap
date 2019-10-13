@@ -12,12 +12,13 @@ class Kupac
             count(b.sifra) as ukupno
             from kupac a left join rezervacija b
             on a.sifra=b.kupac            
+            where concat(ime,prezime) like :uvjet
             group by a.sifra,a.ime,a.prezime,
             a.adresa,a.grad,a.drzava,a.kontakt
             order by a.prezime           
     
     ');
-        $izraz->execute();
+        $izraz->execute(['uvjet' => '%'.App::param('uvjet').'%']);
 
         return $izraz->fetchAll();
     }
@@ -26,13 +27,13 @@ class Kupac
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
-        
-        select a.ime, a.prezime
-         from kupac a
-        where concat(a.ime, a.prezime) like=:uvjet
-        
-        '
-        );
+
+            select *
+            from kupac
+            where concat(ime, prezime) like=:uvjet
+
+            '
+            );
         $izraz->execute(['uvjet' => '%'.App::param('uvjet').'%']);
 
         return $izraz->fetchAll();

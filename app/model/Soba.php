@@ -7,13 +7,13 @@ class Soba
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
 
-            select a.sifra,a.vrstasobe,a.cijenasobe,
-            a.slikasobe,a.opissobe, 
+            select a.sifra,a.vrstasobe,a.slikasobe,
+            a.opissobe,a.cijenasobe,
             count(b.sifra) as ukupno
             from soba a left join rezervacija b
             on a.sifra=b.soba
-            group by a.sifra,a.vrstasobe,a.cijenasobe,
-            a.slikasobe,a.opissobe
+            group by a.sifra,a.vrstasobe,a.slikasobe,
+            a.opissobe,a.cijenasobe
             order by a.vrstasobe
     
     ');
@@ -41,7 +41,7 @@ class Soba
         $izraz = $veza->prepare('
             insert into soba
             values
-            (null,:vrstasobe,:cijenasobe,:slikasobe,:opissobe)
+            (null,:vrstasobe,:slikasobe,:opissobe,:cijenasobe)
         ');
 
         $izraz->execute($_POST);
@@ -54,9 +54,9 @@ class Soba
         
         update soba set
         vrstasobe=:vrstasobe,
-        cijenasobe=:cijenasobe,
         slikasobe=:slikasobe,
-        opissobe=:opissobe
+        opissobe=:opissobe,
+        cijenasobe=:cijenasobe
         where sifra=:sifra
         
         ');

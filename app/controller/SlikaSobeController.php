@@ -1,6 +1,6 @@
 <?php
 
-class Controller extends Controller
+class SlikaSobeController extends Controller
 {
     private $viewGreska = '';
     private $id = 0;

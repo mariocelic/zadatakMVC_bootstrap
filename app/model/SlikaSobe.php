@@ -7,13 +7,11 @@ class SlikaSobe
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
 
-            select a.sifra,a.slika, 
+            select a.sifra,a.slika,
             count(b.sifra) as ukupno
-            from slikasobe a left join rezervacija b
+            from slikasobe a left join soba b
             on a.sifra=b.slikasobe
            
-            order by a.slika
-    
     ');
         $izraz->execute();
 

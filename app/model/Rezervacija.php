@@ -50,7 +50,6 @@ class Rezervacija
         $izraz = $veza->prepare('
         
         insert into rezervacija
-        (null,kupac,placanje,soba,datumprijave,datumodjave)
         values
         (null,:kupac,:placanje,:soba,:datumprijave,:datumodjave)
         
