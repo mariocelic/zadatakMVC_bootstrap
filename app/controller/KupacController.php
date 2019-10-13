@@ -136,6 +136,8 @@ class KupacController extends Controller
 
             return false;
         }
+
+        return true;
     }
 
     private function greska($polje, $poruka)
@@ -145,5 +147,11 @@ class KupacController extends Controller
                      'poruka' => $poruka, ],
                      'id' => $this->id,
                 ]);
+    }
+
+    public function trazikupac()
+    {
+        header('Content-Type: application/json');
+        echo json_encode(Kupac::getTraziKupci(App::param('uvjet')));
     }
 }

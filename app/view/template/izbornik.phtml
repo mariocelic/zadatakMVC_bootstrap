@@ -1,37 +1,37 @@
 <div id="fullscreen_bg" class="fullscreen_bg">
 
 <div clas="container">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand bg-dark">
      <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">Izbornik</a>
       
-      <div class="collapse navbar-collapse">      
+      <div class="collapse navbar-collapse bg-light">      
         <ul class="navbar-nav mr-auto">
         <div class="dropdown-menu" x-placement="bottom-start">
       
           <li class="nav-item dropdown"<?php echo Utility::active('/'); //ne radi?>>
-            <a class="nav-link text-white" href="<?php echo App::config('url'); ?>">
+            <a class="nav-link text-black" href="<?php echo App::config('url'); ?>">
                 <?php echo App::config('nazivApp'); ?>
             </a>
           </li>
       
             <?php if (isset($_SESSION['autoriziran'])): ?>        
               <li class="navbar-item" <?php echo Utility::active('/index/nadzornaPloca'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/nadzornaPloca">Nadzorna ploča</a>
+                <a class="nav-link" href="<?php echo App::config('url'); ?>index/nadzornaPloca">Nadzorna ploča</a>
               </li>
               <li class="navbar-item" <?php echo Utility::active('/kupac/index'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>kupac/index">Kupci</a>
+                <a class="nav-link" href="<?php echo App::config('url'); ?>kupac/index">Kupci</a>
               </li>
               <li class="navbar-item" <?php echo Utility::active('/placanje/index'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>placanje/index">Placanja</a>
+                <a class="nav-link text-black" href="<?php echo App::config('url'); ?>placanje/index">Placanja</a>
               </li>
               <li class="navbar-item" <?php echo Utility::active('/rezervacija/index'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>rezervacija/index">Rezervacije</a>
+                <a class="nav-link text-black" href="<?php echo App::config('url'); ?>rezervacija/index">Rezervacije</a>
               </li>
               <li class="navbar-item" <?php echo Utility::active('/soba/index'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>soba/index">Sobe</a>
+                <a class="nav-link text-black" href="<?php echo App::config('url'); ?>soba/index">Sobe</a>
               </li>
               <li class="navbar-item" <?php echo Utility::active('/index/era'); ?>>
-                <a class="nav-link text-white" href="<?php echo App::config('url'); ?>index/era">ERA</a>
+                <a class="nav-link text-black" href="<?php echo App::config('url'); ?>index/era">ERA</a>
               </li>
           
           <?php endif; ?>
@@ -40,13 +40,13 @@
       </div>
     
       <div class="navbar-nav">
-        <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/onama">O nama</a>
-        <a class="nav-item nav-link text-white" href="<?php echo APP::config('url'); ?>index/kontakt">Kontakt</a>
+        <a class="nav-item nav-link text-black" href="<?php echo APP::config('url'); ?>index/onama">O nama</a>
+        <a class="nav-item nav-link text-black" href="<?php echo APP::config('url'); ?>index/kontakt">Kontakt</a>
           <?php if (isset($_SESSION['autoriziran'])): ?>
-            <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/logout">Odjava
+            <a class="nav-item nav-link text-black" href="<?php echo App::config('url'); ?>index/logout">Odjava
           <?php echo $_SESSION['autoriziran']->imePrezime; ?></a>
             <?php else:?>
-            <a class="nav-item nav-link text-white" href="<?php echo App::config('url'); ?>index/login">Prijava</a>
+            <a class="nav-item nav-link text-black" href="<?php echo App::config('url'); ?>index/login">Prijava</a>
           <?php endif; ?>
         
       </div>

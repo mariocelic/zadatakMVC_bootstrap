@@ -1,0 +1,38 @@
+<a href="<?php echo App::config('url'); ?>slikasobe/pripremaNovi" 
+class="btn btn-primary">
+<i class="fas fa-plus-square"></i>
+Dodaj novu sliku</a>
+
+<div class="container">
+
+    
+    <?php foreach ($slikesoba as $slikasobe): ?>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-info"><?php echo $slikasobe->soba; ?></li>
+                <li class="list-group-item">
+                    <a title="Promjeni <?php echo $$slikasobe->soba; ?>" 
+                        href="<?php
+                        echo App::config('url');
+                        ?>slikasobe/pripremaPromjeni/<?php echo $slikasobe->soba; ?>">
+                        <i class="fas fa-edit fa-2x" style="color: orange"></i>
+                    </a>
+                    <?php if ($slikasobe->ukupno == 0): ?>
+                        <a title="Obriši <?php echo $slikasobe->soba; ?>" 
+                            href="<?php
+                            echo App::config('url');
+                            ?>slikasobe/brisanje/<?php echo $slikasobe->sifra; ?>">
+                            <i class="fas fa-trash fa-2x" style="color: red"></i>
+                        </a>
+                    <?php else:?>
+                        <i title="Ne može se obrisati jer ima unesene vrijednosti" 
+                        class="fas fa-trash fa-2x" style="color: gray"></i>
+                    <?php endif; ?>
+
+                </li>
+            </ul>
+        </div>
+    <?php endforeach; ?>
+</div>
+</div>
+

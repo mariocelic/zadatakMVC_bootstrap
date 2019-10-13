@@ -1,0 +1,22 @@
+<div class="container"> 
+    <div class="row">
+        <div class="col-lg-6"> 
+            <form method="post" 
+                action="<?php echo App::config('url'); ?>placanje/promjeni/<?php echo $id; ?>">
+                <?php include_once 'detalji.phtml'; ?>
+                    <div class="container">
+                        <div class="col-xs-6 col-lg-3">
+                            <a class="btn btn-danger"
+                                href="<?php echo App::config('url'); ?>placanje/index">
+                                Odustani
+                            </a>
+                        </div>
+
+                        <div class="col-xs-6 col-lg-3">
+                            <input type="submit" class="btn btn-info" value="Promjena">
+                        </div>  
+                    </div>        
+            </form>
+        </div>
+    </div>
+</div>

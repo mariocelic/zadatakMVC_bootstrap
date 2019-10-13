@@ -22,6 +22,22 @@ class Kupac
         return $izraz->fetchAll();
     }
 
+    public static function getTraziKupci($uvjet)
+    {
+        $veza = DB::getInstance();
+        $izraz = $veza->prepare('
+        
+        select a.ime, a.prezime
+         from kupac a
+        where concat(a.ime, a.prezime) like=:uvjet
+        
+        '
+        );
+        $izraz->execute(['uvjet' => '%'.App::param('uvjet').'%']);
+
+        return $izraz->fetchAll();
+    }
+
     public static function read($id)
     {
         $veza = DB::getInstance();
