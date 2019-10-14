@@ -111,22 +111,25 @@ ol#smjerovi{
     list-style-type: upper-roman;
 }
 
-table#tablicaSmjerovi > tbody > tr > td:nth-child(2),
-table#tablicaSmjerovi > tbody > tr > td:nth-child(3),
-table#tablicaSmjerovi > tbody > tr > td:nth-child(4),
-table#tablicaSmjerovi > tfoot > tr > td:nth-child(1),
-table#tablicaSmjerovi > tfoot > tr > td:nth-child(2),
-table#tablicaSmjerovi > tfoot > tr > td:nth-child(3)
+
+table#tablicaKupci > tbody > tr > td:nth-child(2),
+table#tablicaKupci > tbody > tr > td:nth-child(3),
+table#tablicaKupci > tbody > tr > td:nth-child(4),
+table#tablicaKupci > tfoot > tr > td:nth-child(1),
+table#tablicaKupci > tfoot > tr > td:nth-child(2),
+table#tablicaKupci > tfoot > tr > td:nth-child(3)
 {
     text-align: right;
 }
-table#tablicaSmjerovi > tbody > tr > td:nth-child(5)
+table#tablicaKupci > tbody > tr > td:nth-child(5)
 {
     text-align: center;
 }
 
-table#tablicaSmjerovi > thead > tr > th{
+table#tablicaKupci > thead > tr > th{
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 .input-group.md-form.form-sm.form-2 input {
@@ -140,19 +143,6 @@ table#tablicaSmjerovi > thead > tr > th{
 
   }
 
-  fieldset.scheduler-border {
-    border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
-}
-
-legend.scheduler-border {
-  font-size: 1.2em !important;
-  font-weight: bold !important;
-  text-align: left !important;
-}
 
 .btn-primary {
 color: #fff;
@@ -161,4 +151,43 @@ border-radius: 15px;
 border: 1px solid rgba(0, 70, 147, 0.75);
 }
 
-  
+.kupci {
+	max-height: 37em;
+  overflow-y: scroll;
+  overflow-x: scroll;
+	outline: 1px solid dimgrey;
+	outline-offset: -1px;
+}
+
+h1 {
+	color: dimgrey;
+  font-family: sans-serif;
+	font-weight: normal;
+	white-space: nowrap;
+	padding: 0.5em 1rem;
+	border-bottom: 1px solid gainsboro;
+}
+/* PAGE LAYOUT END */
+
+/* DEFAULT TABLE */
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+  font-family: sans-serif;
+	background-color: gainsboro;
+	padding: 1em;
+	border: 1px solid white;
+}
+
+th {
+	text-align: left;
+	color: white;
+  background-color: gainsboro;
+  position: sticky;
+  top: 0;
+}
+/* DEFAULT TABLE END */
+
+ 

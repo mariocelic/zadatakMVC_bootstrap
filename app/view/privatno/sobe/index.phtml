@@ -3,6 +3,22 @@ class="btn btn-primary">
 <i class="fas fa-plus-square"></i>
 Dodaj novu sobu</a>
 
+<form class="form-inline" 
+    action="<?php echo App::config('url'); ?>kupac/index" 
+    method="get">
+  <div class="input-group md-form form-sm form-1 pl-0">
+    <div class="input-group-prepend">
+   
+    <input class="form-control mr-sm-2" type="search" name="uvjet" id="uvjet" 
+      placeholder="unesite uvjet pretraživanja" aria-label="Search"
+      value="<?php echo App::param('uvjet'); ?>" />
+    <button class="btn btn-dark" type="submit">Traži</button> 
+  
+  </div>
+  </div>
+</form>
+
+
 <table id="tablicaSobe">  
   <table class="table table-hover">  
     <thead>

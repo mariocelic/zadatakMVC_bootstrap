@@ -12,3 +12,4 @@
 - izmjenjen izgled
 - ubacen search u kupce, ali ne radi
 - radi search
+- stavljen scroll na tablicu kupci 
