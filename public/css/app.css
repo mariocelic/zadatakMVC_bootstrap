@@ -190,4 +190,56 @@ th {
 }
 /* DEFAULT TABLE END */
 
+
+#kontakt{
+  background-color: #70c3be;
+  letter-spacing: 2px;
+  }
+#kontakt a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+@media (max-width: 575.98px) {
+
+  #kontakt{padding-bottom: 800px;}
+  #kontakt .maps iframe{
+    width: 100%;
+    height: 450px;
+  }
+ }
+
+
+@media (min-width: 576px) {
+
+   #kontakt{padding-bottom: 800px;}
+
+   #kontakt .maps iframe{
+     width: 100%;
+     height: 450px;
+   }
+ }
+
+@media (min-width: 768px) {
+
+  #kontakt{padding-bottom: 350px;}
+
+  #kontakt .maps iframe{
+    width: 100%;
+    height: 850px;
+  }
+}
+
+@media (min-width: 992px) {
+  #kontakt{padding-bottom: 200px;}
+
+   #kontakt .maps iframe{
+     width: 100%;
+     height: 700px;
+   }
+}
+
+
+
  

@@ -24,9 +24,9 @@ Dodaj novu sobu</a>
     <thead>
       <tr class="table-secondary">
       <th scope="col">Vrsta sobe</th>
+      <th scope="col">Cijena sobe</th>
       <th scope="col">Slika sobe</th>
       <th scope="col">Opis sobe</th>
-      <th scope="col">Cijena sobe</th>
       <th></th>
       </tr>
     </thead>
@@ -35,9 +35,9 @@ Dodaj novu sobu</a>
       <?php foreach ($sobe as $soba): ?>
       <tr class="table-info">
           <td><?php echo $soba->vrstasobe; ?></td>
+          <td><?php echo $soba->cijenasobe; ?></td>
           <td><?php echo $soba->slikasobe; ?></td>
           <td><?php echo $soba->opissobe; ?></td>
-          <td><?php echo $soba->cijenasobe; ?></td>
           <td>
           <a title="Promjeni <?php echo $soba->vrstasobe; ?>" 
               href="<?php

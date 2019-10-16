@@ -9,7 +9,7 @@ class Rezervacija
         
         select 
             a.sifra,
-            b.prezime as kupac,
+            b.ime,b.prezime as kupac,
             c.nacinplacanja as placanje,
             d.vrstasobe as soba,
             a.datumprijave,
@@ -18,7 +18,7 @@ class Rezervacija
         from        rezervacija a
         inner join 	kupac b 	on a.kupac		=b.sifra
         inner join 	placanje c 	on a.placanje	=c.sifra
-        inner join 	soba d 	on a.soba		=d.sifra
+        inner join 	soba d 	    on a.soba		=d.sifra
         
         group by 
         a.sifra,b.prezime,
@@ -91,7 +91,7 @@ class Rezervacija
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
         
-        select count(kupac) from kupac where rezervacija=:rezervacija
+        select prezime from kupac where rezervacija=:rezervacija
         
         ');
         $izraz->execute(['rezervacija' => $id]);

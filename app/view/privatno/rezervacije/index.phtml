@@ -9,30 +9,30 @@ Dodaj novu rezervaciju</a>
       <tr class="table-secondary">
       <th scope="col">Kupac</th>
       <th scope="col">Plaćanje</th>
+      <th scope="col">Soba</th>
       <th scope="col">Datum prijave</th>
       <th scope="col">Datum odjave</th>
-      <th scope="col">Soba</th>
-      
+            
       </tr>
     </thead>
     <tbody>
       <?php foreach ($rezervacije as $rezervacija): ?>
       <tr class="table-info">
-          <td><?php echo $rezervacija->ime.' '.$predavac->prezime; ?></td>
+          <td><?php echo $rezervacija->kupac; ?></td>
           <td><?php echo $rezervacija->placanje; ?></td>
+          <td><?php echo $rezervacija->soba; ?></td>
           <td><?php echo $rezervacija->datumprijave; ?></td>
           <td><?php echo $rezervacija->datumodjave; ?></td>
-          <td><?php echo $rezervacija->soba; ?></td>
-          
+                  
           <td>
-          <a title="Promjeni <?php echo $rezervacija->ime.' '.$predavac->prezime; ?>" 
+          <a title="Promjeni <?php echo $rezervacija->kupac; ?>" 
               href="<?php
               echo App::config('url');
               ?>rezervacija/pripremaPromjeni/<?php echo $rezervacija->sifra; ?>">
               <i class="fas fa-edit fa-2x" style="color: orange"></i>
           </a>
           <?php if ($rezervacija->ukupno == 0): ?>
-              <a title="Obriši <?php echo $rezervacija->ime . ' ' . $predavac->prezime; ?>" 
+              <a title="Obriši <?php echo $rezervacija->kupac; ?>" 
                   href="<?php
                   echo App::config('url');
                   ?>rezervacija/brisanje/<?php echo $rezervacija->sifra; ?>">

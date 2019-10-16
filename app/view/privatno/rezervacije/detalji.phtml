@@ -1,25 +1,63 @@
-<form>
-    <div class="form-row">
-    <div class="form-group col-md-6">
-        <legend>Popunite tražene podatke</legend>
+<fieldset class="fieldset">
+    <legend>Popunite tražene podatke</legend>
 
-        <div class="col-md-6 text-light">
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'kupac', 'Kupac'); ?>
+    <div class="row">
+        <div class="col-xs-9 col-md-6 col-lg-3">
 
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'placanje', 'Plaćanje'); ?>
+            <label for="kupac">Kupac</label>
+            <select name="kupac" id="kupac">
+                 <option value="0">Odaberite kupca</option>
+                 <?php foreach ($kupci as $kupac): ?>
+                     <option 
+                     
+                     <?php echo App::param('kupac') == $kupac->sifra ? 'selected="selected"' : ''; ?>
+                     
+                     value="<?php echo $kupac->sifra; ?>">
+                         <?php echo $kupac->prezime; ?>
+                     </option>
+                <?php endforeach; ?>
+            </select>
 
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'datumprijave', 'Datum prijave'); ?>
+            <label for="placanje">Plaćanje</label>
+            <select name="placanje" id="placanje">
+                <option value="0">Odaberite plaćanje</option>
+                <?php foreach ($placanja as $placanje): ?>
+                    <option 
+                    
+                    <?php echo App::param('placanje') == $placanje->sifra ? 'selected="selected"' : ''; ?>
+                    
+                    
+                    value="<?php echo $placanje->sifra; ?>">
+                        <?php echo $placanje->nacinplacanja; ?>
+                    </option>
+            <?php endforeach; ?>
+            </select>
+            
+  
+            <label for="soba">Soba</label>
+            <select name="soba" id="soba">
+                <option value="0">Odaberite sobu</option>
+                <?php foreach ($sobe as $soba): ?>
+                    <option 
+                    
+                    <?php echo App::param('soba') == $soba->sifra ? 'selected="selected"' : ''; ?>
+                    
+                    value="<?php echo $soba->sifra; ?>">
+                        <?php echo $soba->vrstasobe; ?>
+                    </option>
+            <?php endforeach; ?>
+            </select>
 
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'datumodjave', 'Datum odjave'); ?>
+            <label for="datumprijave">Datum prijave</label>
+            <input type="date" name="datumprijave" id="datumprijave" 
+            value="<?php echo App::param('datumprijave'); ?>"/>
 
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'soba', 'Soba'); ?>
-        </div>
-    </div>
-    </div>
-</form>
+            <label for="datumodjave">Datum odjave</label>
+            <input type="date" name="datumodjave" id="datumodjave" 
+            value="<?php echo App::param('datumodjave'); ?>"/>
+
+        </div> 
+    </div>  
+
+</fieldset>
 <hr />
