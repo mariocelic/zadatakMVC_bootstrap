@@ -4,7 +4,7 @@ $("#uvjet").autocomplete({
       url: "/soba/trazisoba",
       data: {
         uvjet: request.term,
-        slikasobe: slikasobe
+        slikasobe: slikasobe 
       },
       success: function( data ) {
         response( data );
@@ -20,9 +20,3 @@ $("#uvjet").autocomplete({
     .append( "<div>" + item.slika + "</div>")
     .appendTo( ul );
 };
-
-
-
-
-
-

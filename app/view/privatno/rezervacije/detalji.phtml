@@ -5,7 +5,7 @@
         <div class="col-xs-9 col-md-6 col-lg-3">
 
             <label for="kupac">Kupac</label>
-            <select name="kupac" id="kupac">
+            <select name="kupac" id="kupac"> 
                  <option value="0">Odaberite kupca</option>
                  <?php foreach ($kupci as $kupac): ?>
                      <option 
@@ -13,10 +13,10 @@
                      <?php echo App::param('kupac') == $kupac->sifra ? 'selected="selected"' : ''; ?>
                      
                      value="<?php echo $kupac->sifra; ?>"> 
-                         <?php echo $kupac->prezime; ?>
+                         <?php echo $kupac->ime.' '.$kupac->prezime; ?>
                      </option>
                 <?php endforeach; ?>
-            </select>
+            </select> 
 
             <label for="placanje">Plaćanje</label>
             <select name="placanje" id="placanje">

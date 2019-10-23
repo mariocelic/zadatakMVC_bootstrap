@@ -1,7 +1,7 @@
 $("#uvjet").autocomplete({
   source: function( request, response ) {
     $.ajax( {
-      url: "/polaznik/trazipolaznik",
+      url: "/kupac/trazikupac",
       data: {
         uvjet: request.term,
         rezervacija: rezervacija
