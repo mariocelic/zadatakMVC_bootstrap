@@ -191,11 +191,11 @@ th {
 /* DEFAULT TABLE END */
 
 
-#kontakt{
+#kontakti{
   background-color: #70c3be;
   letter-spacing: 2px;
   }
-#kontakt a{
+#kontakti a{
   color: #fff;
   text-decoration: none;
 }
@@ -203,8 +203,8 @@ th {
 
 @media (max-width: 575.98px) {
 
-  #kontakt{padding-bottom: 800px;}
-  #kontakt .maps iframe{
+  #kontakti{padding-bottom: 800px;}
+  #kontakti .maps iframe{
     width: 100%;
     height: 450px;
   }
@@ -213,9 +213,9 @@ th {
 
 @media (min-width: 576px) {
 
-   #kontakt{padding-bottom: 800px;}
+   #kontakti{padding-bottom: 800px;}
 
-   #kontakt .maps iframe{
+   #kontakti .maps iframe{
      width: 100%;
      height: 450px;
    }
@@ -223,18 +223,18 @@ th {
 
 @media (min-width: 768px) {
 
-  #kontakt{padding-bottom: 350px;}
+  #kontakti{padding-bottom: 350px;}
 
-  #kontakt .maps iframe{
+  #kontakti .maps iframe{
     width: 100%;
     height: 850px;
   }
 }
 
 @media (min-width: 992px) {
-  #kontakt{padding-bottom: 200px;}
+  #kontakti{padding-bottom: 200px;}
 
-   #kontakt .maps iframe{
+   #kontakti .maps iframe{
      width: 100%;
      height: 700px;
    }

@@ -3,64 +3,63 @@ class="btn btn-primary">
 <i class="fas fa-plus-square"></i>
 Dodaj novu sobu</a>
 
-<form class="form-inline" 
-    action="<?php echo App::config('url'); ?>kupac/index" 
-    method="get">
-  <div class="input-group md-form form-sm form-1 pl-0">
-    <div class="input-group-prepend">
-   
-    <input class="form-control mr-sm-2" type="search" name="uvjet" id="uvjet" 
-      placeholder="unesite uvjet pretraživanja" aria-label="Search"
-      value="<?php echo App::param('uvjet'); ?>" />
-    <button class="btn btn-dark" type="submit">Traži</button> 
-  
-  </div>
-  </div>
-</form>
+<div class="table-responsive-sm">
+    <div class="kupci">
+       <table id="tablicaKupci">  
+        <table class="table">  
+          <thead>
+            <tr class="table-secondary">
+            <th scope="col">Vrsta sobe</th>
+            <th scope="col">Cijena sobe</th>
+            <th scope="col">Slika sobe</th>
+            <th scope="col">Opis sobe</th>
+            <th scope="col">Promjena/Brisanje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($sobe as $soba): ?>
+            <tr class="table-info">
+                <td><?php echo $soba->vrstasobe; ?></td>
+                <td><?php echo $soba->cijenasobe; ?></td>
+                <td>
+                <img src="<?php
+                        $datoteka = '';
+                        if (file_exists(App::config('putanja').'public/img/sobe/'.$soba->sifra.'.jpg')) {
+                            $datoteka = App::config('url').'public/img/sobe/'.$soba->sifra.'.jpg';
+                        } else {
+                            $datoteka = App::config('url').'public/img/nemaKreveta.jpg';
+                        }
 
+                        echo $datoteka;
+                        ?>" alt="<?php echo $soba->slikasobe; ?>"> 
+                <?php echo $soba->slikasobe; ?></td>
+                <td><?php echo $soba->opissobe; ?></td>
+                <td>
+                <a title="Promjeni <?php echo $soba->vrstasobe; ?>" 
+                    href="<?php
+                    echo App::config('url');
+                    ?>soba/pripremaPromjeni/<?php echo $soba->sifra; ?>">
+                    <i class="fas fa-edit fa-2x" style="color: orange"></i>
+                </a>
+                <?php if ($soba->ukupno == 0): ?>
+                    <a title="Obriši <?php echo $soba->vrstasobe; ?>" 
+                        href="<?php
+                        echo App::config('url');
+                        ?>soba/brisanje/<?php echo $soba->sifra; ?>">
+                        <i class="fas fa-trash fa-2x" style="color: red"></i>
+                    </a>
+            <?php else:?>
+                    <i title="Ne može se obrisati jer ima rezervacija" 
+                    class="fas fa-trash fa-2x" style="color: gray"></i>
 
-<table id="tablicaSobe">  
-  <table class="table table-hover">  
-    <thead>
-      <tr class="table-secondary">
-      <th scope="col">Vrsta sobe</th>
-      <th scope="col">Cijena sobe</th>
-      <th scope="col">Slika sobe</th>
-      <th scope="col">Opis sobe</th>
-      <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <?php foreach ($sobe as $soba): ?>
-      <tr class="table-info">
-          <td><?php echo $soba->vrstasobe; ?></td>
-          <td><?php echo $soba->cijenasobe; ?></td>
-          <td><?php echo $soba->slikasobe; ?></td>
-          <td><?php echo $soba->opissobe; ?></td>
-          <td>
-          <a title="Promjeni <?php echo $soba->vrstasobe; ?>" 
-              href="<?php
-              echo App::config('url');
-              ?>soba/pripremaPromjeni/<?php echo $soba->sifra; ?>">
-              <i class="fas fa-edit fa-2x" style="color: orange"></i>
-          </a>
-          <?php if ($soba->ukupno == 0): ?>
-              <a title="Obriši <?php echo $soba->vrstasobe; ?>" 
-                  href="<?php
-                  echo App::config('url');
-                  ?>soba/brisanje/<?php echo $soba->sifra; ?>">
-                  <i class="fas fa-trash fa-2x" style="color: red"></i>
-              </a>
-      <?php else:?>
-              <i title="Ne može se obrisati jer ima rezervacija" 
-              class="fas fa-trash fa-2x" style="color: gray"></i>
-
-          <?php endif; ?> 
-          
-          </td>
-        </tr> 
-      <?php endforeach; ?>
-    </tbody>
-  
-</table>
+                <?php endif; ?> 
+                
+                </td>
+              </tr> 
+            <?php endforeach; ?>
+          </tbody>
+    </table>
+  </table>
+</div>
+</div>
+ 

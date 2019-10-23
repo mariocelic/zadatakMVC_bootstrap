@@ -9,11 +9,12 @@ class Rezervacija
         
         select 
             a.sifra,
-            b.ime,b.prezime as kupac,
+            concat(b.ime, b.prezime) as kupac,
             c.nacinplacanja as placanje,
             d.vrstasobe as soba,
             a.datumprijave,
-            a.datumodjave
+            a.datumodjave,
+            count(b.sifra) as ukupno
             
         from        rezervacija a
         inner join 	kupac b 	on a.kupac		=b.sifra
@@ -84,19 +85,5 @@ class Rezervacija
         
         ');
         $izraz->execute(['sifra' => $id]);
-    }
-
-    public static function isDeletable($id)
-    {
-        $veza = DB::getInstance();
-        $izraz = $veza->prepare('
-        
-        select prezime from kupac where rezervacija=:rezervacija
-        
-        ');
-        $izraz->execute(['rezervacija' => $id]);
-        $ukupno = $izraz->fetchColumn();
-
-        return $ukupno == 0;
     }
 }

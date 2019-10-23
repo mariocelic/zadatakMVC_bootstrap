@@ -2,11 +2,9 @@
     <div class="col-xs-9 col-md-6 col-lg-3">
         <legend>Popunite tražene podatke</legend>
 
-        <div class="col-md-6 text-light">
-            <?php echo Utility::inputText(
-                isset($greska) ? $greska : null, 'slikasobe', 'Slika sobe'); ?>
-        </div>
-
+        <label for="slika">Postavi sliku</label>
+        <input type="file" id="slika" name="slika">
+       
     </div>
 </div>
 

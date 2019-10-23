@@ -1,6 +1,6 @@
 <?php
 
-class SlikaSobeController extends Controller
+class SlikasobeController extends UlogaOperater
 {
     private $viewGreska = '';
     private $id = 0;
@@ -8,7 +8,7 @@ class SlikaSobeController extends Controller
     public function index()
     {
         $this->view->render('privatno/slikesoba/index',
-            ['slikesoba' => SlikaSobe::getSlikeSoba()]);
+            ['slikesoba' => Slikasobe::getSlikesoba()]);
     }
 
     public function pripremaNovi()
@@ -24,13 +24,20 @@ class SlikaSobeController extends Controller
             return;
         }
 
-        SlikaSobe::novi();
+        $zadnji = Slikasobe::novi();
+
+        if (!empty($_FILES['slika'])) {
+            $path = App::config('putanja').'public/img/sobe/'.$zadnji.'.jpg';
+            // var_dump($path);
+            move_uploaded_file($_FILES['slika']['tmp_name'], $path);
+        }
+
         $this->index();
     }
 
     public function pripremaPromjeni($id)
     {
-        App::setParams(SlikaSobe::read($id));
+        App::setParams(Slikasobe::read($id));
         $this->view->render('privatno/slikesoba/promjeni',
         ['id' => $id]);
     }
@@ -44,19 +51,19 @@ class SlikaSobeController extends Controller
             return;
         }
 
-        SlikaSobe::promjeni($id);
+        Slikasobe::promjeni($id);
         $this->index();
     }
 
     public function brisanje($id)
     {
-        if (!SlikaSobe::isDeletable($id)) {
+        if (!Slikasobe::isDeletable($id)) {
             $this->index();
 
             return;
         }
 
-        SlikaSobe::brisi($id);
+        Slikasobe::brisi($id);
         $this->index();
     }
 

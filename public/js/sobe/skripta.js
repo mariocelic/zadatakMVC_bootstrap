@@ -1,10 +1,10 @@
 $("#uvjet").autocomplete({
   source: function( request, response ) {
     $.ajax( {
-      url: "/polaznik/trazipolaznik",
+      url: "/soba/trazisoba",
       data: {
         uvjet: request.term,
-        rezervacija: rezervacija
+        slikasobe: slikasobe
       },
       success: function( data ) {
         response( data );
@@ -13,11 +13,11 @@ $("#uvjet").autocomplete({
   },
   minLength: 1,
   select: function( event, ui ) {
-      console.log( "Idem na server s: " + rezervacija + " i " + ui.item.sifra );
+      console.log( "Idem na server s: " + slikasobe + " i " + ui.item.sifra );
   }
 } ).autocomplete( "instance" )._renderItem = function( ul, item ) {
   return $( "<li>" )
-    .append( "<div>" + item.ime + " " + item.prezime + "</div>" )
+    .append( "<div>" + item.slika + "</div>")
     .appendTo( ul );
 };
 

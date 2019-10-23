@@ -1,6 +1,6 @@
 <?php
 
-class PlacanjeController extends Controller
+class PlacanjeController extends UlogaOperater
 {
     private $viewGreska = '';
     private $id = 0;

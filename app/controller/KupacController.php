@@ -1,6 +1,6 @@
 <?php
 
-class KupacController extends Controller
+class KupacController extends UlogaOperater
 {
     private $viewGreska = '';
     private $id = 0;

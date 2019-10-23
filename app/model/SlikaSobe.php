@@ -1,8 +1,8 @@
 <?php
 
-class SlikaSobe
+class Slikasobe
 {
-    public static function getSlikeSoba()
+    public static function getSlikesoba()
     {
         $veza = DB::getInstance();
         $izraz = $veza->prepare('
@@ -11,7 +11,8 @@ class SlikaSobe
             count(b.sifra) as ukupno
             from slikasobe a left join soba b
             on a.sifra=b.slikasobe
-           
+            group by a.sifra
+            
     ');
         $izraz->execute();
 
@@ -37,7 +38,7 @@ class SlikaSobe
         $izraz = $veza->prepare('
             insert into slikasobe
             values
-            (null,:soba)
+            (null,:slika)
         ');
 
         $izraz->execute($_POST);

@@ -35,6 +35,11 @@ class IndexController
         $view->render('kontakt');
     }
 
+    public function js()
+    {
+        $this->view->render('javascript');
+    }
+
     public function login()
     {
         $view = new View();
@@ -74,6 +79,7 @@ class IndexController
         $korisnik = new stdClass();
         $korisnik->email = $red->email;
         $korisnik->imePrezime = $red->ime.' '.$red->prezime;
+        $korisnik->uloga = $red->uloga;
         $_SESSION['autoriziran'] = $korisnik;
 
         $view->render('privatno/nadzornaPloca');

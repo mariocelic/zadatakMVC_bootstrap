@@ -1,6 +1,6 @@
 <?php
 
-class RezervacijaController extends Controller
+class RezervacijaController extends UlogaOperater
 {
     private $viewGreska = '';
     private $id = 0;
@@ -63,12 +63,6 @@ class RezervacijaController extends Controller
 
     public function brisanje($id)
     {
-        if (!Rezervacija::isDeletable($id)) {
-            $this->index();
-
-            return;
-        }
-
         Rezervacija::brisi($id);
         $this->index();
     }
